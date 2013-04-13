@@ -20,6 +20,7 @@ public class GameplayScreen implements Screen
     @Override
     public void render(float delta)
     {
+
     }
 
     @Override
