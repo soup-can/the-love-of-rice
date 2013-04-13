@@ -22,5 +22,7 @@ public final class TheLoveOfRice extends Game
     public void create()
     {
         gameplayScreen = new GameplayScreen();
+
+        setScreen(gameplayScreen);
     }
 }
