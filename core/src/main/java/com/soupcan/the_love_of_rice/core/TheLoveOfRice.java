@@ -1,43 +1,26 @@
 package com.soupcan.the_love_of_rice.core;
 
-import com.badlogic.gdx.graphics.GL10;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Game;
+import com.soupcan.the_love_of_rice.core.screen.GameplayScreen;
 
-public class TheLoveOfRice implements ApplicationListener {
-	Texture texture;
-	SpriteBatch batch;
-	
-	@Override
-	public void create () {
-		texture = new Texture(Gdx.files.internal("libgdx-logo.png"));
-		batch = new SpriteBatch();
-	}
+/**
+ * Start of the game!
+ *
+ * @author Zachary Latta
+ */
+public final class TheLoveOfRice extends Game
+{
+    public static TheLoveOfRice instance = new TheLoveOfRice();
 
-	@Override
-	public void resize (int width, int height) {
-	}
+    public GameplayScreen gameplayScreen;
 
-	@Override
-	public void render () {
-		Gdx.gl.glClearColor(0, 0, 0, 0);
-		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-		batch.begin();
-		batch.draw(texture, 100, 100);
-		batch.end();
-	}
+    private TheLoveOfRice()
+    {
+    }
 
-	@Override
-	public void pause () {
-	}
-
-	@Override
-	public void resume () {
-	}
-
-	@Override
-	public void dispose () {
-	}
+    @Override
+    public void create()
+    {
+        gameplayScreen = new GameplayScreen();
+    }
 }
