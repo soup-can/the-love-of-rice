@@ -11,8 +11,8 @@ public class TheLoveOfRiceDesktop
     {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.useGL20 = true;
-        config.width = 1280/2;
-        config.height = (768 - 96)/2;
+        config.width = 1280;
+        config.height = 768 - 96;
         config.title = "The Love of Rice";
 		new LwjglApplication(TheLoveOfRice.instance, config);
 	}

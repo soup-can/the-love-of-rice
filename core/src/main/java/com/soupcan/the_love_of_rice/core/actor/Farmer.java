@@ -39,9 +39,7 @@ public class Farmer extends Actor
         Sprite toRender = currentAnimation.getKeyFrame(stateTime);
         toRender.setScale(getScaleX(), getScaleY());
         toRender.setOrigin(getX(), getY());
-
-        Gdx.app.log("Origin X: ", Float.toString(toRender.getOriginX()));
-        Gdx.app.log("Origin Y: ", Float.toString(toRender.getOriginY()));
+        toRender.setPosition(getX(), getY());
 
         toRender.draw(batch);
     }
