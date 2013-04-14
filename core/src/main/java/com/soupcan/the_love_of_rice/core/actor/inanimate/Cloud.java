@@ -21,7 +21,6 @@ public class Cloud extends Actor
 
     private final Sprite sprite;
     private float screenWidth;
-    private float stateTime;
 
     public Cloud(float speed, float startingX, float startingY, float screenWidth)
     {
@@ -45,7 +44,6 @@ public class Cloud extends Actor
 
     public void draw(SpriteBatch batch, float parentAlpha)
     {
-        stateTime += Gdx.graphics.getDeltaTime();
         move();
 
         sprite.setPosition(getX(), getY());

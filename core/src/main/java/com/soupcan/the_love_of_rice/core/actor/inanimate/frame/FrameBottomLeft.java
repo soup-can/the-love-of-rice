@@ -6,17 +6,17 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.soupcan.the_love_of_rice.core.manager.SpriteManager;
 
 /**
- * A vertical strip of the frame. Kill me for being inefficient.
+ * The bottom left corner of the frame. Kill me for being inefficient.
  *
  * @author Zachary Latta
  */
-public class FrameVertical extends Actor
+public class FrameBottomLeft extends Actor
 {
     private Sprite sprite;
 
-    public FrameVertical()
+    public FrameBottomLeft()
     {
-        sprite = SpriteManager.instance.getSprite("frame_vertical");
+        sprite = SpriteManager.instance.getSprite("frame_bot_l");
     }
 
     public void draw(SpriteBatch batch, float parentAlpha)
