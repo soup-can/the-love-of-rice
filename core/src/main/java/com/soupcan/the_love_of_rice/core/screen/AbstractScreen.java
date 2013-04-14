@@ -20,7 +20,7 @@ public abstract class AbstractScreen implements Screen
     public AbstractScreen()
     {
         this.batch = new SpriteBatch();
-        this.stage = new Stage(0, 0, true);
+        this.stage = new Stage(1280 / 5, (768 - 96) / 5, false);
         Gdx.input.setInputProcessor(stage);
     }
 
@@ -38,7 +38,7 @@ public abstract class AbstractScreen implements Screen
     @Override
     public void resize(int width, int height )
     {
-        stage.setViewport(1280, 768 - 96, true);
+        stage.setViewport(1280 / 5, (768 - 96) / 5, false);
     }
 
     @Override

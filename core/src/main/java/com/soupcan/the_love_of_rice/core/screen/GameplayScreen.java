@@ -1,5 +1,15 @@
 package com.soupcan.the_love_of_rice.core.screen;
 
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.Interpolation;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
+import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
+import com.soupcan.the_love_of_rice.core.actor.Farmer;
+
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.*;
+
 /**
  * Gameplay and stuff.
  *
