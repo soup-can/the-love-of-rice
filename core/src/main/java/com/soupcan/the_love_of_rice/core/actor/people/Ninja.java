@@ -21,7 +21,7 @@ public class Ninja extends Actor
 
     public Ninja()
     {
-        idleAnimation = new SpriteAnimation(.75f, "ninja_", 1, 5);
+        idleAnimation = new SpriteAnimation(.75f, "ninja_", 1, 8);
         fightAnimation = new SpriteAnimation(1f, "ninja_", 1, 1);
 
         idleAnimation.setPlayMode(SpriteAnimation.LOOP);
