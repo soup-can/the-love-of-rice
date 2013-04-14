@@ -1,14 +1,9 @@
 package com.soupcan.the_love_of_rice.core.screen;
 
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.InputListener;
-import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
-import com.soupcan.the_love_of_rice.core.actor.Farmer;
-
-import static com.badlogic.gdx.scenes.scene2d.actions.Actions.*;
+import com.soupcan.the_love_of_rice.core.actor.people.Farmer;
+import com.soupcan.the_love_of_rice.core.actor.people.Ninja;
+import com.soupcan.the_love_of_rice.core.actor.people.Sumo;
 
 /**
  * Gameplay and stuff.
@@ -17,9 +12,21 @@ import static com.badlogic.gdx.scenes.scene2d.actions.Actions.*;
  */
 public class GameplayScreen extends AbstractScreen
 {
+    Actor farmer = new Farmer();
+    Actor ninja = new Ninja();
+    Actor sumo = new Sumo();
+
     public GameplayScreen()
     {
         super();
+
+        farmer.setX(10);
+        ninja.setX(50);
+        sumo.setX(100);
+
+        stage.addActor(farmer);
+        stage.addActor(ninja);
+        stage.addActor(sumo);
     }
 
     @Override

@@ -26,7 +26,7 @@ public abstract class AbstractScreen implements Screen
 
     protected String getName()
     {
-        return getClass().getSimpleName();
+        return this.getClass().getSimpleName();
     }
 
     @Override
