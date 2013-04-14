@@ -13,7 +13,7 @@ public final class TheLoveOfRice extends Game
 {
     public static String LOG = TheLoveOfRice.class.getSimpleName();
     public static final FPSLogger fpsLogger = new FPSLogger();
-    public static final boolean DRAW_DEBUG = true;
+    public static final boolean DRAW_DEBUG = false;
 
     public static TheLoveOfRice instance = new TheLoveOfRice();
 
