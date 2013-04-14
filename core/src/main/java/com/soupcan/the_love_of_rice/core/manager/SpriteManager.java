@@ -21,7 +21,7 @@ public class SpriteManager
 
     private SpriteManager()
     {
-        atlas = new TextureAtlas(Gdx.files.internal("img/sprites.atlas"));
+        atlas = new TextureAtlas(Gdx.files.internal("img/sprites.pack"));
         sprites = new HashMap<String, Sprite>();
         load();
     }
@@ -35,12 +35,24 @@ public class SpriteManager
 
         for(int i = 0; i < createdSprites.size && i < atlasRegions.size; i++)
         {
-            sprites.put(atlasRegions.get(i).name, createdSprites.get(i));
+            TextureAtlas.AtlasRegion currentRegion = atlasRegions.get(i);
+
+            // If it's a sequence of images, then include the index in the sprite
+            // name when putting it in the HashMap.
+            if(atlasRegions.get(i).index != -1)
+            {
+                sprites.put(currentRegion.name + "_" + currentRegion.index, createdSprites.get(i));
+            }
+            else
+            {
+                sprites.put(atlasRegions.get(i).name, createdSprites.get(i));
+            }
         }
     }
 
     public Sprite getSprite(String name)
     {
-        return sprites.get(name);
+        Sprite toReturn = sprites.get(name);
+        return toReturn;
     }
 }

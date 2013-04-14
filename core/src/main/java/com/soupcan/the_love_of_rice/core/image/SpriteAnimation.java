@@ -2,6 +2,7 @@ package com.soupcan.the_love_of_rice.core.image;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.soupcan.the_love_of_rice.core.manager.SpriteManager;
 
@@ -22,8 +23,7 @@ public class SpriteAnimation
     public final float frameDuration;
     public final float animationDuration;
 
-    private Array<Sprite> sprites;
-
+    private Array<Sprite> sprites = new Array<Sprite>();
     private int playMode = NORMAL;
 
     public SpriteAnimation(float frameDuration, Array<String> names)
@@ -39,7 +39,7 @@ public class SpriteAnimation
 
     public SpriteAnimation(float frameDuration, String prefix, int first, int last)
     {
-        for(int i = first; i < last; i++)
+        for(int i = first; i <= last; i++)
         {
             String name = prefix + Integer.toString(i);
             sprites.add(SpriteManager.instance.getSprite(name));
@@ -90,7 +90,8 @@ public class SpriteAnimation
     public Sprite getKeyFrame(float stateTime)
     {
         int frameNumber = getKeyFrameIndex(stateTime);
-        return sprites.get(frameNumber);
+        Sprite toReturn = sprites.get(frameNumber);
+        return toReturn;
     }
 
     /** Returns the current frame number.
