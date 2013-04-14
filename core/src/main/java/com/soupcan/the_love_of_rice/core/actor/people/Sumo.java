@@ -18,17 +18,17 @@ public class Sumo extends Actor
 {
     private SpriteAnimation currentAnimation = null;
     private SpriteAnimation idleAnimation = null;
-    private SpriteAnimation blockAnimation = null;
+    private SpriteAnimation hurtAnimation = null;
 
     private float stateTime = 0;
 
     public Sumo()
     {
         idleAnimation = new SpriteAnimation(1f, "sumo_", 1, 2);
-        blockAnimation = new SpriteAnimation(1f, "sumo_", 1, 1);
+        hurtAnimation = new SpriteAnimation(1f, "sumo_hurt_", 1, 2);
 
         idleAnimation.setPlayMode(SpriteAnimation.LOOP);
-        blockAnimation.setPlayMode(SpriteAnimation.LOOP);
+        hurtAnimation.setPlayMode(SpriteAnimation.LOOP);
 
         currentAnimation = idleAnimation;
     }
