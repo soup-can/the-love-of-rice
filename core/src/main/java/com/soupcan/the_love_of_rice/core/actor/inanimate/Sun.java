@@ -1,4 +1,4 @@
-package com.soupcan.the_love_of_rice.core.actor.people;
+package com.soupcan.the_love_of_rice.core.actor.inanimate;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -7,47 +7,37 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.soupcan.the_love_of_rice.core.TheLoveOfRice;
-import com.soupcan.the_love_of_rice.core.image.SpriteAnimation;
 import com.soupcan.the_love_of_rice.core.manager.DebugRendererManager;
+import com.soupcan.the_love_of_rice.core.manager.SpriteManager;
 
 /**
- * Ninjas are rice-stealing, farmer slaughtering, toilet clogging, toenail stubbing jerks.
+ * The sun provides light and warmth.
  *
  * @author Zachary Latta
  */
-public class Ninja extends Actor
+public class Sun extends Actor
 {
-    private SpriteAnimation currentAnimation = null;
-    private SpriteAnimation idleAnimation = null;
-    private SpriteAnimation fightAnimation = null;
+    private Sprite sprite;
 
     private float stateTime = 0;
 
-    public Ninja()
+    public Sun()
     {
-        idleAnimation = new SpriteAnimation(.75f, "ninja_", 1, 8);
-        fightAnimation = new SpriteAnimation(.25f, "ninja_fight_", 1, 6);
-
-        idleAnimation.setPlayMode(SpriteAnimation.LOOP);
-        fightAnimation.setPlayMode(SpriteAnimation.LOOP);
-
-        currentAnimation = idleAnimation;
+        sprite = SpriteManager.instance.getSprite("sun");
     }
 
     public void draw(SpriteBatch batch, float parentAlpha)
     {
         stateTime += Gdx.graphics.getDeltaTime();
 
-        Sprite toRender = currentAnimation.getKeyFrame(stateTime);
+        sprite.setPosition(getX(), getY());
+        sprite.setOrigin(sprite.getX() + sprite.getWidth(), sprite.getY() + sprite.getHeight());
+        sprite.setRotation(getRotation());
 
-        toRender.setPosition(getX(), getY());
-        toRender.setOrigin(toRender.getX() + toRender.getWidth(), toRender.getY() + toRender.getHeight());
-        toRender.setRotation(getRotation());
+        setSize(sprite.getWidth(), sprite.getHeight());
+        setOrigin(sprite.getOriginX(), sprite.getOriginY());
 
-        setSize(toRender.getWidth(), toRender.getHeight());
-        setOrigin(toRender.getOriginX(), toRender.getOriginY());
-
-        toRender.draw(batch);
+        sprite.draw(batch);
 
         if(TheLoveOfRice.DRAW_DEBUG)
         {
@@ -66,10 +56,15 @@ public class Ninja extends Actor
         renderer.translate(getX(), getY(), 0);
 
         renderer.begin(ShapeRenderer.ShapeType.Line);
-        renderer.setColor(new Color(Color.RED));
+        renderer.setColor(new Color(Color.ORANGE));
         renderer.rect(0, 0, getWidth(), getHeight());
         renderer.end();
 
         batch.begin();
+    }
+
+    public Sprite getSprite()
+    {
+        return sprite;
     }
 }

@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.soupcan.the_love_of_rice.core.TheLoveOfRice;
 import com.soupcan.the_love_of_rice.core.image.SpriteAnimation;
+import com.soupcan.the_love_of_rice.core.manager.DebugRendererManager;
 
 /**
  * Sumos block Ninjas.
@@ -58,7 +59,7 @@ public class Sumo extends Actor
     {
         batch.end();
 
-        ShapeRenderer renderer = new ShapeRenderer();
+        ShapeRenderer renderer = DebugRendererManager.instance.debugRenderer;
 
         renderer.setProjectionMatrix(batch.getProjectionMatrix());
         renderer.setTransformMatrix(batch.getTransformMatrix());
