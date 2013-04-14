@@ -23,6 +23,8 @@ public class Sun extends Actor
 
     public Sun()
     {
+        setName("sun");
+
         sprite = SpriteManager.instance.getSprite("sun");
     }
 

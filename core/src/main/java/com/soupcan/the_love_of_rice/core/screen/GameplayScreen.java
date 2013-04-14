@@ -1,7 +1,13 @@
 package com.soupcan.the_love_of_rice.core.screen;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
+import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
+import com.soupcan.the_love_of_rice.core.actor.animate.farm.PaddyField;
 import com.soupcan.the_love_of_rice.core.actor.inanimate.Cloud;
 import com.soupcan.the_love_of_rice.core.actor.inanimate.Fence;
 import com.soupcan.the_love_of_rice.core.actor.inanimate.Sun;
@@ -21,45 +27,84 @@ import java.util.List;
 public class GameplayScreen extends AbstractScreen
 {
     public static final int CLOUD_COUNT = 3;
+    public static final int FENCE_COUNT = 30;
 
     private List<Actor> clouds = new ArrayList<Actor>();
+    private List<Actor> fences = new ArrayList<Actor>();
     Actor sun = new Sun();
     Actor farmer = new Farmer();
     Actor farmer2 = new Farmer();
     Actor ninja = new Ninja();
     Actor sumo = new Sumo();
     Actor samurai = new Samurai();
-    Actor fence;
+    Actor ricePaddy = new PaddyField();
+    Actor ricePaddy2 = new PaddyField();
 
     public GameplayScreen()
     {
         super();
 
-        fence = new Fence(stage.getWidth());
-
-        sun.setPosition(206, 84.4f);
-        farmer.setX(10);
-        farmer2.setX(170);
-        ninja.setX(50);
-        sumo.setX(100);
-        samurai.setX(150);
-        fence.setX(0);
+        sun.setPosition(175f, 100f);
+        ricePaddy.setX(125);
+        ricePaddy2.setX(50);
+        farmer.setX(40);
+        farmer2.setX(110);
+        ninja.setX(180);
+        sumo.setX(160);
+        samurai.setX(70);
 
         stage.addActor(sun);
 
         for(int i = 0; i < CLOUD_COUNT; i++)
         {
-            clouds.add(new Cloud(MathUtils.random(10), MathUtils.random(stage.getWidth()), MathUtils.random(80, 100),
+            clouds.add(new Cloud(MathUtils.random(10), MathUtils.random(stage.getWidth()), MathUtils.random(90, 110),
                     stage.getWidth()));
             stage.addActor(clouds.get(i));
         }
 
+
+        float xCount = 0;
+        for(int i = 0; i < FENCE_COUNT; i++)
+        {
+            fences.add(new Fence(stage.getWidth()));
+
+            fences.get(i).setX(xCount);
+            xCount += fences.get(i).getWidth();
+
+            stage.addActor(fences.get(i));
+        }
+
+        stage.addActor(ricePaddy);
+        stage.addActor(ricePaddy2);
         stage.addActor(farmer);
         stage.addActor(farmer2);
-        stage.addActor(ninja);
         stage.addActor(sumo);
         stage.addActor(samurai);
-        stage.addActor(fence);
+        stage.addActor(ninja);
+
+        for(final Actor actor : stage.getActors())
+        {
+            actor.addListener(new InputListener()
+            {
+                public boolean touchDown(InputEvent event, float x, float y, int pointer, int button)
+                {
+                    Gdx.app.log(getName(), "User touched " + actor.getName() + " at (" + x + ", " + y + ")");
+
+                    return true;
+                }
+
+                public void touchUp(InputEvent event, float x, float y, int pointer, int button)
+                {
+                    Gdx.app.log(getName(), "User released " + actor.getName() + " at (" + x + ", " + y + ")");
+
+                    MoveToAction action = new MoveToAction();
+                    action.setPosition(x + actor.getX(), y + actor.getY());
+                    action.setDuration(1);
+                    action.setInterpolation(Interpolation.exp10);
+                    actor.addAction(action);
+                }
+            });
+        }
     }
 
     @Override

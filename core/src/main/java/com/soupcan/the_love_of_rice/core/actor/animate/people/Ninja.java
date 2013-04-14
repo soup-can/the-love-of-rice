@@ -25,6 +25,8 @@ public class Ninja extends Actor
 
     public Ninja()
     {
+        setName("ninja");
+
         idleAnimation = new SpriteAnimation(.75f, "ninja_", 1, 8);
         fightAnimation = new SpriteAnimation(.25f, "ninja_fight_", 1, 6);
 

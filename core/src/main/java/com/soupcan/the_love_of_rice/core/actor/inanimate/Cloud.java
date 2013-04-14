@@ -24,6 +24,8 @@ public class Cloud extends Actor
 
     public Cloud(float speed, float startingX, float startingY, float screenWidth)
     {
+        setName("cloud");
+
         SPEED = speed;
         this.screenWidth = screenWidth;
 

@@ -25,6 +25,8 @@ public class Farmer extends Actor
 
     public Farmer()
     {
+        setName("farmer");
+
         idleAnimation = new SpriteAnimation(1f, "farmer_", 1, 2);
         harvestAnimation = new SpriteAnimation(1f, "farmer_", 1, 1);
 

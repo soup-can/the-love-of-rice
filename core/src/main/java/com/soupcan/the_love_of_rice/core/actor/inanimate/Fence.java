@@ -24,7 +24,11 @@ public class Fence extends Actor
 
     public Fence(float screenWidth)
     {
+        setName("fence");
+
         sprite = SpriteManager.instance.getSprite("fence");
+
+        setWidth(sprite.getWidth());
 
         count = (int) (screenWidth / count);
     }

@@ -1,4 +1,4 @@
-package com.soupcan.the_love_of_rice.core.actor.animate.people;
+package com.soupcan.the_love_of_rice.core.actor.animate.farm;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -11,33 +11,30 @@ import com.soupcan.the_love_of_rice.core.image.SpriteAnimation;
 import com.soupcan.the_love_of_rice.core.manager.DebugRendererManager;
 
 /**
- * Sumos block Ninjas.
+ * Rice grows here.
  *
  * @author Zachary Latta
  */
-public class Sumo extends Actor
+public class PaddyField extends Actor
 {
-    private SpriteAnimation currentAnimation = null;
-    private SpriteAnimation idleAnimation = null;
-    private SpriteAnimation hurtAnimation = null;
+    private SpriteAnimation currentAnimation;
+    private SpriteAnimation growAnimation = null;
+    private SpriteAnimation harvestAnimation = null;
 
     private float stateTime = 0;
 
-    public Sumo()
+    public PaddyField()
     {
-        setName("sumo");
+        setName("paddy field");
+        growAnimation = new SpriteAnimation(0.75f, "rice_grow_", 1, 5);
+        harvestAnimation = new SpriteAnimation(0.5f, "rice_harvested_", 1, 7);
 
-        idleAnimation = new SpriteAnimation(1f, "sumo_", 1, 2);
-        hurtAnimation = new SpriteAnimation(1f, "sumo_hurt_", 1, 2);
-
-        idleAnimation.setPlayMode(SpriteAnimation.LOOP);
-        hurtAnimation.setPlayMode(SpriteAnimation.LOOP);
-
-        currentAnimation = idleAnimation;
+        currentAnimation = growAnimation;
     }
 
     public void draw(SpriteBatch batch, float parentAlpha)
     {
+        stateTime += Gdx.graphics.getDeltaTime();
         stateTime += Gdx.graphics.getDeltaTime();
 
         Sprite toRender = currentAnimation.getKeyFrame(stateTime);

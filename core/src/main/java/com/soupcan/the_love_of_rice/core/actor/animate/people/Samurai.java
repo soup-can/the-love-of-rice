@@ -25,6 +25,8 @@ public class Samurai extends Actor
 
     public Samurai()
     {
+        setName("samurai");
+
         idleAnimation = new SpriteAnimation(1f, "samurai_", 1, 2);
         blockAnimation = new SpriteAnimation(.5f, "samurai_block_", 1, 2);
 
