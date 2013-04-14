@@ -5,10 +5,10 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.soupcan.the_love_of_rice.core.actor.inanimate.Cloud;
 import com.soupcan.the_love_of_rice.core.actor.inanimate.Fence;
 import com.soupcan.the_love_of_rice.core.actor.inanimate.Sun;
-import com.soupcan.the_love_of_rice.core.actor.animate.Farmer;
-import com.soupcan.the_love_of_rice.core.actor.animate.Ninja;
-import com.soupcan.the_love_of_rice.core.actor.animate.Samurai;
-import com.soupcan.the_love_of_rice.core.actor.animate.Sumo;
+import com.soupcan.the_love_of_rice.core.actor.animate.people.Farmer;
+import com.soupcan.the_love_of_rice.core.actor.animate.people.Ninja;
+import com.soupcan.the_love_of_rice.core.actor.animate.people.Samurai;
+import com.soupcan.the_love_of_rice.core.actor.animate.people.Sumo;
 
 import java.util.ArrayList;
 import java.util.List;

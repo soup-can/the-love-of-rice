@@ -1,4 +1,4 @@
-package com.soupcan.the_love_of_rice.core.actor.animate;
+package com.soupcan.the_love_of_rice.core.actor.animate.people;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -11,25 +11,25 @@ import com.soupcan.the_love_of_rice.core.image.SpriteAnimation;
 import com.soupcan.the_love_of_rice.core.manager.DebugRendererManager;
 
 /**
- * Sumos block Ninjas.
+ * Samurai block projectiles and kill ninjas.
  *
  * @author Zachary Latta
  */
-public class Sumo extends Actor
+public class Samurai extends Actor
 {
     private SpriteAnimation currentAnimation = null;
     private SpriteAnimation idleAnimation = null;
-    private SpriteAnimation hurtAnimation = null;
+    private SpriteAnimation blockAnimation = null;
 
     private float stateTime = 0;
 
-    public Sumo()
+    public Samurai()
     {
-        idleAnimation = new SpriteAnimation(1f, "sumo_", 1, 2);
-        hurtAnimation = new SpriteAnimation(1f, "sumo_hurt_", 1, 2);
+        idleAnimation = new SpriteAnimation(1f, "samurai_", 1, 2);
+        blockAnimation = new SpriteAnimation(.5f, "samurai_block_", 1, 2);
 
         idleAnimation.setPlayMode(SpriteAnimation.LOOP);
-        hurtAnimation.setPlayMode(SpriteAnimation.LOOP);
+        blockAnimation.setPlayMode(SpriteAnimation.LOOP);
 
         currentAnimation = idleAnimation;
     }
@@ -40,7 +40,8 @@ public class Sumo extends Actor
 
         Sprite toRender = currentAnimation.getKeyFrame(stateTime);
 
-        toRender.setPosition(getX(), getY());
+        // -1 to account for the sword below his feet
+        toRender.setPosition(getX(), getY() - 1);
         toRender.setOrigin(toRender.getX() + toRender.getWidth(), toRender.getY() + toRender.getHeight());
         toRender.setRotation(getRotation());
 
