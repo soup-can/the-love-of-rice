@@ -2,7 +2,6 @@ package com.soupcan.the_love_of_rice.core.image;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.soupcan.the_love_of_rice.core.manager.SpriteManager;
 

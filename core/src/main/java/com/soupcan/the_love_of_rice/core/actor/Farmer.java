@@ -29,7 +29,7 @@ public class Farmer extends Actor
 
         currentAnimation = idleAnimation;
 
-        scale(2);
+        scale(4);
     }
 
     public void draw(SpriteBatch batch, float parentAlpha)

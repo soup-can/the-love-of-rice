@@ -23,9 +23,6 @@ public abstract class AbstractScreen implements Screen
         this.batch = new SpriteBatch();
         this.stage = new Stage(0, 0, true);
         Gdx.input.setInputProcessor(stage);
-
-        stage.setCamera(new OrthographicCamera(1280, 768 - 96));
-        stage.getCamera().position.set(1280/2, (768 - 96)/2, 0f);
     }
 
     protected String getName()
@@ -42,6 +39,7 @@ public abstract class AbstractScreen implements Screen
     @Override
     public void resize(int width, int height )
     {
+        stage.setViewport(1280, 768 - 96, true);
     }
 
     @Override
