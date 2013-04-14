@@ -1,8 +1,5 @@
 package com.soupcan.the_love_of_rice.core.screen;
 
-import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.soupcan.the_love_of_rice.core.actor.Farmer;
-
 /**
  * Gameplay and stuff.
  *
