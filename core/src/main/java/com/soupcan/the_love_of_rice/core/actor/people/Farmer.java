@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.soupcan.the_love_of_rice.core.TheLoveOfRice;
 import com.soupcan.the_love_of_rice.core.image.SpriteAnimation;
 
 /**
@@ -46,5 +47,28 @@ public class Farmer extends Actor
         setOrigin(toRender.getOriginX(), toRender.getOriginY());
 
         toRender.draw(batch);
+
+        if(TheLoveOfRice.DRAW_DEBUG)
+        {
+            drawDebug(batch);
+        }
+    }
+
+    public void drawDebug(SpriteBatch batch)
+    {
+        batch.end();
+
+        ShapeRenderer renderer = new ShapeRenderer();
+
+        renderer.setProjectionMatrix(batch.getProjectionMatrix());
+        renderer.setTransformMatrix(batch.getTransformMatrix());
+        renderer.translate(getX(), getY(), 0);
+
+        renderer.begin(ShapeRenderer.ShapeType.Line);
+        renderer.setColor(new Color(Color.RED));
+        renderer.rect(0, 0, getWidth(), getHeight());
+        renderer.end();
+
+        batch.begin();
     }
 }
