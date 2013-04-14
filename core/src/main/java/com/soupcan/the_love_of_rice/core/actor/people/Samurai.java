@@ -10,7 +10,7 @@ import com.soupcan.the_love_of_rice.core.TheLoveOfRice;
 import com.soupcan.the_love_of_rice.core.image.SpriteAnimation;
 
 /**
- * Samurai kill ninjas.
+ * Samurai block projectiles and kill ninjas.
  *
  * @author Zachary Latta
  */
