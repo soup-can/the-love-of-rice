@@ -3,6 +3,7 @@ package com.soupcan.the_love_of_rice.core.screen;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.soupcan.the_love_of_rice.core.actor.people.Farmer;
 import com.soupcan.the_love_of_rice.core.actor.people.Ninja;
+import com.soupcan.the_love_of_rice.core.actor.people.Samurai;
 import com.soupcan.the_love_of_rice.core.actor.people.Sumo;
 
 /**
@@ -15,6 +16,7 @@ public class GameplayScreen extends AbstractScreen
     Actor farmer = new Farmer();
     Actor ninja = new Ninja();
     Actor sumo = new Sumo();
+    Actor samurai = new Samurai();
 
     public GameplayScreen()
     {
@@ -23,10 +25,12 @@ public class GameplayScreen extends AbstractScreen
         farmer.setX(10);
         ninja.setX(50);
         sumo.setX(100);
+        samurai.setX(150);
 
         stage.addActor(farmer);
         stage.addActor(ninja);
         stage.addActor(sumo);
+        stage.addActor(samurai);
     }
 
     @Override
