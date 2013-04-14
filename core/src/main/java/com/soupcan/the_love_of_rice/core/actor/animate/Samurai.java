@@ -1,4 +1,4 @@
-package com.soupcan.the_love_of_rice.core.actor.people;
+package com.soupcan.the_love_of_rice.core.actor.animate;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -11,25 +11,25 @@ import com.soupcan.the_love_of_rice.core.image.SpriteAnimation;
 import com.soupcan.the_love_of_rice.core.manager.DebugRendererManager;
 
 /**
- * Ninjas are rice-stealing, farmer slaughtering, toilet clogging, toenail stubbing jerks.
+ * Samurai block projectiles and kill ninjas.
  *
  * @author Zachary Latta
  */
-public class Ninja extends Actor
+public class Samurai extends Actor
 {
     private SpriteAnimation currentAnimation = null;
     private SpriteAnimation idleAnimation = null;
-    private SpriteAnimation fightAnimation = null;
+    private SpriteAnimation blockAnimation = null;
 
     private float stateTime = 0;
 
-    public Ninja()
+    public Samurai()
     {
-        idleAnimation = new SpriteAnimation(.75f, "ninja_", 1, 8);
-        fightAnimation = new SpriteAnimation(.25f, "ninja_fight_", 1, 6);
+        idleAnimation = new SpriteAnimation(1f, "samurai_", 1, 2);
+        blockAnimation = new SpriteAnimation(.5f, "samurai_block_", 1, 2);
 
         idleAnimation.setPlayMode(SpriteAnimation.LOOP);
-        fightAnimation.setPlayMode(SpriteAnimation.LOOP);
+        blockAnimation.setPlayMode(SpriteAnimation.LOOP);
 
         currentAnimation = idleAnimation;
     }
@@ -40,7 +40,8 @@ public class Ninja extends Actor
 
         Sprite toRender = currentAnimation.getKeyFrame(stateTime);
 
-        toRender.setPosition(getX(), getY());
+        // -1 to account for the sword below his feet
+        toRender.setPosition(getX(), getY() - 1);
         toRender.setOrigin(toRender.getX() + toRender.getWidth(), toRender.getY() + toRender.getHeight());
         toRender.setRotation(getRotation());
 

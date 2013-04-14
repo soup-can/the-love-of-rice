@@ -1,4 +1,4 @@
-package com.soupcan.the_love_of_rice.core.actor.people;
+package com.soupcan.the_love_of_rice.core.actor.animate;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -11,25 +11,25 @@ import com.soupcan.the_love_of_rice.core.image.SpriteAnimation;
 import com.soupcan.the_love_of_rice.core.manager.DebugRendererManager;
 
 /**
- * Samurai block projectiles and kill ninjas.
+ * Farmers farm rice paddies.
  *
  * @author Zachary Latta
  */
-public class Samurai extends Actor
+public class Farmer extends Actor
 {
     private SpriteAnimation currentAnimation = null;
     private SpriteAnimation idleAnimation = null;
-    private SpriteAnimation blockAnimation = null;
+    private SpriteAnimation harvestAnimation = null;
 
     private float stateTime = 0;
 
-    public Samurai()
+    public Farmer()
     {
-        idleAnimation = new SpriteAnimation(1f, "samurai_", 1, 2);
-        blockAnimation = new SpriteAnimation(.5f, "samurai_block_", 1, 2);
+        idleAnimation = new SpriteAnimation(1f, "farmer_", 1, 2);
+        harvestAnimation = new SpriteAnimation(1f, "farmer_", 1, 1);
 
         idleAnimation.setPlayMode(SpriteAnimation.LOOP);
-        blockAnimation.setPlayMode(SpriteAnimation.LOOP);
+        harvestAnimation.setPlayMode(SpriteAnimation.LOOP);
 
         currentAnimation = idleAnimation;
     }
@@ -40,8 +40,7 @@ public class Samurai extends Actor
 
         Sprite toRender = currentAnimation.getKeyFrame(stateTime);
 
-        // -1 to account for the sword below his feet
-        toRender.setPosition(getX(), getY() - 1);
+        toRender.setPosition(getX(), getY());
         toRender.setOrigin(toRender.getX() + toRender.getWidth(), toRender.getY() + toRender.getHeight());
         toRender.setRotation(getRotation());
 

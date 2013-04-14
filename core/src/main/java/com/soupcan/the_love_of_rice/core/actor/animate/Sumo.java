@@ -1,4 +1,4 @@
-package com.soupcan.the_love_of_rice.core.actor.people;
+package com.soupcan.the_love_of_rice.core.actor.animate;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;

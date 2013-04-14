@@ -1,4 +1,4 @@
-package com.soupcan.the_love_of_rice.core.actor.people;
+package com.soupcan.the_love_of_rice.core.actor.animate;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -11,25 +11,25 @@ import com.soupcan.the_love_of_rice.core.image.SpriteAnimation;
 import com.soupcan.the_love_of_rice.core.manager.DebugRendererManager;
 
 /**
- * Farmers farm rice paddies.
+ * Ninjas are rice-stealing, farmer slaughtering, toilet clogging, toenail stubbing jerks.
  *
  * @author Zachary Latta
  */
-public class Farmer extends Actor
+public class Ninja extends Actor
 {
     private SpriteAnimation currentAnimation = null;
     private SpriteAnimation idleAnimation = null;
-    private SpriteAnimation harvestAnimation = null;
+    private SpriteAnimation fightAnimation = null;
 
     private float stateTime = 0;
 
-    public Farmer()
+    public Ninja()
     {
-        idleAnimation = new SpriteAnimation(1f, "farmer_", 1, 2);
-        harvestAnimation = new SpriteAnimation(1f, "farmer_", 1, 1);
+        idleAnimation = new SpriteAnimation(.75f, "ninja_", 1, 8);
+        fightAnimation = new SpriteAnimation(.25f, "ninja_fight_", 1, 6);
 
         idleAnimation.setPlayMode(SpriteAnimation.LOOP);
-        harvestAnimation.setPlayMode(SpriteAnimation.LOOP);
+        fightAnimation.setPlayMode(SpriteAnimation.LOOP);
 
         currentAnimation = idleAnimation;
     }
