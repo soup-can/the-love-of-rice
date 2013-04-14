@@ -10,19 +10,15 @@ import com.soupcan.the_love_of_rice.core.actor.Farmer;
  */
 public class GameplayScreen extends AbstractScreen
 {
-    private Farmer leFarmer = new Farmer();
-
     public GameplayScreen()
     {
         super();
-        stage.addActor(leFarmer);
     }
 
     @Override
     public void render(float delta)
     {
         super.render(delta);
-        leFarmer.act(delta);
     }
 
     @Override
