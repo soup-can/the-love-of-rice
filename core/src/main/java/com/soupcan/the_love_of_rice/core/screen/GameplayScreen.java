@@ -98,9 +98,11 @@ public class GameplayScreen extends AbstractScreen
                     Gdx.app.log(getName(), "User released " + actor.getName() + " at (" + x + ", " + y + ")");
 
                     MoveToAction action = new MoveToAction();
-                    action.setPosition(x + actor.getX(), y + actor.getY());
+                    // Sets position so that the middle of the actor ends up on the mouse when the user releases.
+                    action.setPosition(x + actor.getX() - actor.getWidth() / 2,
+                                       y + actor.getY() - actor.getHeight() / 2);
                     action.setDuration(1);
-                    action.setInterpolation(Interpolation.exp10);
+                    action.setInterpolation(Interpolation.exp5);
                     actor.addAction(action);
                 }
             });
