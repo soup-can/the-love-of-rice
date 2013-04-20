@@ -1,4 +1,4 @@
-The Love of Rice [![Build Status](http://zachlatta.com:8080/job/The%20Love%20of%20Rice/badge/icon)](http://zachlatta.com:8080/job/The%20Love%20of%20Rice/)
+The Love of Rice [![Build Status](http://ci.zachlatta.com/job/the-love-of-rice/badge/icon)](http://zachlatta.com:8080/job/the-love-of-rice/)
 ================
 
 Game about loving rice and such.
