@@ -44,7 +44,7 @@ public abstract class AbstractScreen implements Screen
     @Override
     public void render(float delta)
     {
-        Gdx.gl.glClearColor(206f, 231f, 215f, 1f);
+        Gdx.gl.glClearColor(0.8078431373f, 0.9058823529f, 0.8431372549f, 0f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT );
 
         // Log dat FPS
