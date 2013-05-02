@@ -52,23 +52,26 @@ public class SpriteAnimation
     {
         // We set the play mode by overriding the previous mode based on looping
         // parameter value
-        if (looping && (playMode == NORMAL || playMode == REVERSED))
+        if(looping && (playMode == NORMAL || playMode == REVERSED))
         {
-            if (playMode == NORMAL)
+            if(playMode == NORMAL)
             {
                 playMode = LOOP;
             }
+
             else
             {
                 playMode = LOOP_REVERSED;
             }
         }
-        else if (!looping && !(playMode == NORMAL || playMode == REVERSED))
+
+        else if(!looping && !(playMode == NORMAL || playMode == REVERSED))
         {
-            if (playMode == LOOP_REVERSED)
+            if(playMode == LOOP_REVERSED)
             {
                 playMode = REVERSED;
             }
+
             else
             {
                 playMode = LOOP;
@@ -96,7 +99,8 @@ public class SpriteAnimation
     /** Returns the current frame number.
      * @param stateTime
      * @return current frame number */
-    public int getKeyFrameIndex(float stateTime) {
+    public int getKeyFrameIndex(float stateTime)
+    {
         int frameNumber = (int)(stateTime / frameDuration);
 
         if(sprites.size == 1)
@@ -109,22 +113,29 @@ public class SpriteAnimation
             case NORMAL:
                 frameNumber = Math.min(sprites.size - 1, frameNumber);
                 break;
+
             case LOOP:
                 frameNumber = frameNumber % sprites.size;
                 break;
+
             case LOOP_PINGPONG:
                 frameNumber = frameNumber % ((sprites.size * 2) - 2);
-                if (frameNumber >= sprites.size)
+
+                if(frameNumber >= sprites.size)
                 {
                     frameNumber = sprites.size - 2 - (frameNumber - sprites.size);
                 }
+
                 break;
+
             case LOOP_RANDOM:
                 frameNumber = MathUtils.random(sprites.size - 1);
                 break;
+
             case REVERSED:
                 frameNumber = Math.max(sprites.size - frameNumber - 1, 0);
                 break;
+
             case LOOP_REVERSED:
                 frameNumber = frameNumber % sprites.size;
                 frameNumber = sprites.size - frameNumber - 1;

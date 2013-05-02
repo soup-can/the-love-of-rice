@@ -28,7 +28,6 @@ public class PaddyField extends Actor
         setName("paddy field");
         growAnimation = new SpriteAnimation(0.75f, "rice_grow_", 1, 5);
         harvestAnimation = new SpriteAnimation(0.5f, "rice_harvested_", 1, 7);
-
         currentAnimation = growAnimation;
     }
 
@@ -36,16 +35,12 @@ public class PaddyField extends Actor
     {
         stateTime += Gdx.graphics.getDeltaTime();
         stateTime += Gdx.graphics.getDeltaTime();
-
         Sprite toRender = currentAnimation.getKeyFrame(stateTime);
-
         toRender.setPosition(getX(), getY());
         toRender.setOrigin(toRender.getX() + toRender.getWidth(), toRender.getY() + toRender.getHeight());
         toRender.setRotation(getRotation());
-
         setSize(toRender.getWidth(), toRender.getHeight());
         setOrigin(toRender.getOriginX(), toRender.getOriginY());
-
         toRender.draw(batch);
 
         if(TheLoveOfRice.DRAW_DEBUG)
@@ -57,18 +52,14 @@ public class PaddyField extends Actor
     public void drawDebug(SpriteBatch batch)
     {
         batch.end();
-
         ShapeRenderer renderer = DebugRendererManager.instance.debugRenderer;
-
         renderer.setProjectionMatrix(batch.getProjectionMatrix());
         renderer.setTransformMatrix(batch.getTransformMatrix());
         renderer.translate(getX(), getY(), 0);
-
         renderer.begin(ShapeRenderer.ShapeType.Line);
         renderer.setColor(new Color(Color.RED));
         renderer.rect(0, 0, getWidth(), getHeight());
         renderer.end();
-
         batch.begin();
     }
 }

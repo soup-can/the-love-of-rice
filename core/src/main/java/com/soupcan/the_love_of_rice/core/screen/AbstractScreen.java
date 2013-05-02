@@ -32,11 +32,11 @@ public abstract class AbstractScreen implements Screen
     @Override
     public void show()
     {
-        Gdx.app.log(TheLoveOfRice.LOG, "Showing screen: " + getName() );
+        Gdx.app.log(TheLoveOfRice.LOG, "Showing screen: " + getName());
     }
 
     @Override
-    public void resize(int width, int height )
+    public void resize(int width, int height)
     {
         stage.setViewport((1280 - 96) / 5, 768 / 5, false);
     }
@@ -45,11 +45,9 @@ public abstract class AbstractScreen implements Screen
     public void render(float delta)
     {
         Gdx.gl.glClearColor(0.8078431373f, 0.9058823529f, 0.8431372549f, 0f);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT );
-
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         // Log dat FPS
         TheLoveOfRice.fpsLogger.log();
-
         // Update and draw the stage actor
         stage.act(delta);
         stage.draw();
@@ -77,7 +75,6 @@ public abstract class AbstractScreen implements Screen
     public void dispose()
     {
         Gdx.app.log(TheLoveOfRice.LOG, "Disposing screen: " + getName());
-
         stage.dispose();
         batch.dispose();
     }

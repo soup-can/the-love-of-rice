@@ -29,7 +29,6 @@ public class SpriteManager
     private void load()
     {
         assert sprites != null && atlas != null;
-
         Array<Sprite> createdSprites = atlas.createSprites();
         Array<TextureAtlas.AtlasRegion> atlasRegions = atlas.getRegions();
 
@@ -43,6 +42,7 @@ public class SpriteManager
             {
                 sprites.put(currentRegion.name + "_" + currentRegion.index, createdSprites.get(i));
             }
+
             else
             {
                 sprites.put(atlasRegions.get(i).name, createdSprites.get(i));

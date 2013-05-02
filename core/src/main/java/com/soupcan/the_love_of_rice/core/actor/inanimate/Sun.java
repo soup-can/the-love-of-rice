@@ -24,21 +24,17 @@ public class Sun extends Actor
     public Sun()
     {
         setName("sun");
-
         sprite = SpriteManager.instance.getSprite("sun");
     }
 
     public void draw(SpriteBatch batch, float parentAlpha)
     {
         stateTime += Gdx.graphics.getDeltaTime();
-
         sprite.setPosition(getX(), getY());
         sprite.setOrigin(sprite.getX() + sprite.getWidth(), sprite.getY() + sprite.getHeight());
         sprite.setRotation(getRotation());
-
         setSize(sprite.getWidth(), sprite.getHeight());
         setOrigin(sprite.getOriginX(), sprite.getOriginY());
-
         sprite.draw(batch);
 
         if(TheLoveOfRice.DRAW_DEBUG)
@@ -50,18 +46,14 @@ public class Sun extends Actor
     public void drawDebug(SpriteBatch batch)
     {
         batch.end();
-
         ShapeRenderer renderer = DebugRendererManager.instance.debugRenderer;
-
         renderer.setProjectionMatrix(batch.getProjectionMatrix());
         renderer.setTransformMatrix(batch.getTransformMatrix());
         renderer.translate(getX(), getY(), 0);
-
         renderer.begin(ShapeRenderer.ShapeType.Line);
         renderer.setColor(new Color(Color.ORANGE));
         renderer.rect(0, 0, getWidth(), getHeight());
         renderer.end();
-
         batch.begin();
     }
 

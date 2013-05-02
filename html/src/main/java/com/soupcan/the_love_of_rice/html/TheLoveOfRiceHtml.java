@@ -8,15 +8,15 @@ import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
 
 public class TheLoveOfRiceHtml extends GwtApplication
 {
-	@Override
-	public ApplicationListener getApplicationListener ()
+    @Override
+    public ApplicationListener getApplicationListener()
     {
-		return TheLoveOfRice.instance;
-	}
-	
-	@Override
-	public GwtApplicationConfiguration getConfig ()
+        return TheLoveOfRice.instance;
+    }
+
+    @Override
+    public GwtApplicationConfiguration getConfig()
     {
-		return new GwtApplicationConfiguration(480, 320);
-	}
+        return new GwtApplicationConfiguration(480, 320);
+    }
 }

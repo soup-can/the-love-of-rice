@@ -24,10 +24,8 @@ public class FrameVertical extends Actor
         sprite.setPosition(getX(), getY());
         sprite.setOrigin(sprite.getX() + sprite.getWidth(), sprite.getY() + sprite.getHeight());
         sprite.setRotation(getRotation());
-
         setSize(sprite.getWidth(), sprite.getHeight());
         setOrigin(sprite.getOriginX(), sprite.getOriginY());
-
         sprite.draw(batch);
     }
 }

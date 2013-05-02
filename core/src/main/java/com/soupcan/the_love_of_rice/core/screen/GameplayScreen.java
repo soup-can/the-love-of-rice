@@ -43,7 +43,6 @@ public class GameplayScreen extends AbstractScreen
     public GameplayScreen()
     {
         super();
-
         sun.setPosition(175f, 100f);
         ricePaddy.setX(125);
         ricePaddy2.setX(50);
@@ -52,25 +51,22 @@ public class GameplayScreen extends AbstractScreen
         ninja.setX(180);
         sumo.setX(160);
         samurai.setX(70);
-
         stage.addActor(sun);
 
         for(int i = 0; i < CLOUD_COUNT; i++)
         {
             clouds.add(new Cloud(MathUtils.random(10), MathUtils.random(stage.getWidth()), MathUtils.random(90, 110),
-                    stage.getWidth()));
+                                 stage.getWidth()));
             stage.addActor(clouds.get(i));
         }
 
-
         float xCount = 0;
+
         for(int i = 0; i < FENCE_COUNT; i++)
         {
             fences.add(new Fence(stage.getWidth()));
-
             fences.get(i).setX(xCount);
             xCount += fences.get(i).getWidth();
-
             stage.addActor(fences.get(i));
         }
 
@@ -89,14 +85,11 @@ public class GameplayScreen extends AbstractScreen
                 public boolean touchDown(InputEvent event, float x, float y, int pointer, int button)
                 {
                     Gdx.app.log(getName(), "User touched " + actor.getName() + " at (" + x + ", " + y + ")");
-
                     return true;
                 }
-
                 public void touchUp(InputEvent event, float x, float y, int pointer, int button)
                 {
                     Gdx.app.log(getName(), "User released " + actor.getName() + " at (" + x + ", " + y + ")");
-
                     MoveToAction action = new MoveToAction();
                     // Sets position so that the middle of the actor ends up on the mouse when the user releases.
                     action.setPosition(x + actor.getX() - actor.getWidth() / 2,
